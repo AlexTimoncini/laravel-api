@@ -120,6 +120,7 @@ class ProjectController extends Controller
         $project->date = date('y-m-d');
         $project->gitHub = $data['gitHub'];
         $project->slug = Str::of("$project->id " . $data['title'])->slug('-');
+        $project->image = $data['image'];
         $project->save();
 
         $project->technologies()->sync($data['technology']);
